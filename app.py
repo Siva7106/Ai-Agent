@@ -18,8 +18,3 @@ def get_vid(q):
 def home():
     return render_template("index.html")
 
-@app.route("/agent", methods=["POST"])
-def ai_agent_router():
-    d = request.get_json(silent=True)
-    if not d or ("command" not in d and "text_command" not in d):
-        abort(400)
