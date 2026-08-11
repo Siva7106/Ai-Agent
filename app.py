@@ -8,7 +8,7 @@ def get_vid(q):
         enc = urllib.parse.quote(q)
         url = f"https://www.youtube.com/results?search_query={enc}"
         req = urllib.request.Request(url, headers={"User-Agent": "Mozilla/5.0"})
-        data = urllib.request.urlopen(req, timeout=10).read().decode()
+        data = urllib.request.urlopen(req, timeout=5).read().decode()
         ids = re.findall(r"\"videoId\":\"([^\"]+)\"", data)
         return ids[0] if ids else None
     except Exception:
